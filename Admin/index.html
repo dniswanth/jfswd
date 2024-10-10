@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Loansphere Admin</title>
+    <style>
+        body, html {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #EAC7AF;
+            color: white;
+        }
+
+        nav {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #8A6565;
+            border-radius: 5px;
+        }
+
+        .main-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h2 {
+            color: brown;
+            font-size: 28px; /* Increased font size */
+        }
+
+        p {
+            color: brown;
+            font-size: 18px; /* Increased font size */
+            text-align: center;
+        }
+
+        .grid-container {
+            display: flex; /* Change to flex for side-by-side layout */
+            justify-content: center; /* Center the containers */
+            gap: 20px; /* Gap between containers */
+            margin-top: 20px;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+
+        .container {
+            background-color: #8A6565;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center; /* Center text within the container */
+            flex: 1; /* Allow equal growth */
+            min-width: 250px; /* Set minimum width for responsiveness */
+            max-width: 300px; /* Set maximum width for larger screens */
+        }
+
+        h3 {
+            color: #643404;
+            font-size: 24px; /* Increased font size */
+        }
+
+        button {
+            background-color: #643404;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-size: 16px; /* Increased button font size */
+        }
+
+        button:hover {
+            background-color: #8A6565;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .grid-container {
+                flex-direction: column; /* Stack containers on smaller screens */
+                align-items: center; /* Center stacked containers */
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h1>Loansphere Admin</h1>
+        <ul>
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="borrowers.html">Borrowers List</a></li>
+            <li><a href="lenders.html">Lenders List</a></li>
+            <li><a href="manage-loans.html">Manage Loans</a></li>
+            <li><a href="authorize.html">Authorize Borrowers</a></li>
+            <li><a href="settings.html">Settings</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content">
+        <h2>Welcome to the Admin Dashboard</h2>
+        <p>Here you can see an overview of loan applications, borrower and lender statistics, and system activity.</p>
+
+        <div class="grid-container">
+            <div class="container">
+                <h3 style="color: #643404;">Statistics</h3>
+                <ul>
+                    <li>Total Borrowers: 150</li>
+                    <li>Total Lenders: 50</li>
+                    <li>Total Loans Issued: 200</li>
+                    <li>Total Loan Amount: $500,000</li>
+                </ul>
+                <button>View More Details</button>
+            </div>
+
+            <div class="container">
+                <h3>Loan Applications</h3>
+                <p style="color:azure;">Review new loan applications and approve or reject them as per your discretion.</p>
+                <button>Go to Loan Applications</button>
+            </div>
+
+            <div class="container">
+                <h3>Recent Transactions</h3>
+                <p style="color:azure;">Keep track of recent transactions between borrowers and lenders.</p>
+                <button>View Transactions</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

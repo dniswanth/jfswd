@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Offers - Loansphere</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: #EAC7AF;
+            color: white;
+        }
+
+        /* Navbar Styling */
+        nav {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #8A6565;
+            border-radius: 5px;
+        }
+
+        .main-content {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .offer-container {
+            width: 45%;
+        }
+
+        .offer {
+            background-color: #8A6565;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+
+        h2 {
+            color: #643404;
+        }
+
+        p {
+            color: white;
+        }
+
+        button {
+            background-color: #643404;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #8A6565;
+        }
+
+        .details-container {
+            margin-top: 10px;
+            background-color: #8A6565;
+            padding: 15px;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .details-container h3 {
+            color: #643404;
+        }
+
+        .close-btn {
+            background-color: #E44D4D;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .close-btn:hover {
+            background-color: #C33C3C;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h1>Loan Offers</h1>
+        <ul>
+            <li><a href="lender-dashboard.html">Dashboard</a></li>
+            <li><a href="loan-offers.html">Loan Offers</a></li>
+            <li><a href="loan-requests.html">Loan Requests</a></li>
+            <li><a href="payment_history.html">Payment History</a></li>
+            <li><a href="profile.html">Profile Settings</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content">
+        <!-- Offer 1 Container -->
+        <div class="offer-container">
+            <div class="offer">
+                <h2>Offer 1</h2>
+                <p>Loan Amount: $100,000 | Interest Rate: 5% | Duration: 12 months</p>
+                <button onclick="toggleDetails(1)">View Details</button>
+            </div>
+            <div id="details-container-1" class="details-container">
+                <h3>Offer Details</h3>
+                <p>
+                    Loan Amount: $100,000<br>
+                    Interest Rate: 5%<br>
+                    Duration: 12 months<br>
+                    Repayment Schedule: Monthly<br>
+                    Early Repayment: Allowed<br>
+                    Collateral: Required
+                </p>
+                <button class="close-btn" onclick="toggleDetails(1)">Close</button>
+            </div>
+        </div>
+
+        <!-- Offer 2 Container -->
+        <div class="offer-container">
+            <div class="offer">
+                <h2>Offer 2</h2>
+                <p>Loan Amount: $50,000 | Interest Rate: 4.5% | Duration: 24 months</p>
+                <button onclick="toggleDetails(2)">View Details</button>
+            </div>
+            <div id="details-container-2" class="details-container">
+                <h3>Offer Details</h3>
+                <p>
+                    Loan Amount: $50,000<br>
+                    Interest Rate: 4.5%<br>
+                    Duration: 24 months<br>
+                    Repayment Schedule: Quarterly<br>
+                    Early Repayment: Not Allowed<br>
+                    Collateral: Not Required
+                </p>
+                <button class="close-btn" onclick="toggleDetails(2)">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleDetails(offerId) {
+            const detailsContainer = document.getElementById(`details-container-${offerId}`);
+            
+            // Toggle visibility
+            if (detailsContainer.style.display === 'none' || detailsContainer.style.display === '') {
+                detailsContainer.style.display = 'block'; // Show the details
+            } else {
+                detailsContainer.style.display = 'none';  // Hide the details
+            }
+        }
+    </script>
+</body>
+</html>

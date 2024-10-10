@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borrower Dashboard - Loansphere</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: #EAC7AF;
+            color: white;
+        }
+        
+        nav {
+            background-color: rgba(0, 0, 0, 0.7);
+            overflow: hidden;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        
+        nav a:hover {
+            background-color: #8A6565;
+            border-radius: 5px;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #8A6565;
+            color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1, h2 {
+            color: brown;
+        }
+
+        button {
+            background-color: #643404;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #8A6565;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="borrower-dashboard.html">Dashboard</a>
+        <a href="loan-application.html">Apply for Loan</a>
+        <a href="loan-status.html">Loan Status</a>
+        <a href="payment-history.html">Payment History</a>
+        <a href="profile-settings.html">Profile Settings</a>
+        <a href="help.html">Help</a>
+    </nav>
+
+    <div class="container">
+        <h1>Borrower Dashboard</h1>
+        <div class="card">
+            <h2>Welcome, John Doe!</h2>
+            <p>Your loan application status: <strong>Pending</strong>.</p>
+        </div>
+        <div class="card">
+            <h2>Next Payment Due</h2>
+            <p>Your next payment of $500 is due on <strong>15th October 2024</strong>.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Requests - Loansphere</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #EAC7AF;
+            color: #FFFFFF;
+        }
+
+        nav {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #8A6565;
+            border-radius: 5px;
+        }
+
+        .main-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h2 {
+            color: brown;
+            font-size: 28px;
+        }
+
+        .request {
+            background-color: #8A6565;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            width: 80%;
+            color: white;
+        }
+
+        .request h3 {
+            color: #643404;
+        }
+
+        .request p {
+            color: white;
+        }
+
+        .toggle-request {
+            cursor: pointer;
+            color: #FFD700;
+            text-decoration: underline;
+        }
+
+        .details {
+            display: none;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .request {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h1>Loansphere</h1>
+        <ul>
+            <li><a href="lender-dashboard.html">Dashboard</a></li>
+            <li><a href="loan-offers.html">Loan Offers</a></li>
+            <li><a href="loan-requests.html">Loan Requests</a></li>
+            <li><a href="payment_history.html">Payment History</a></li>
+            <li><a href="profile.html">Profile Settings</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content">
+        <h2>Loan Requests</h2>
+
+        <div class="request">
+            <h3>Request #54321</h3>
+            <p>Borrower: John Doe | Amount: $15,000 | Status: Pending</p>
+            <span class="toggle-request">View Details</span>
+            <div class="details">
+                <p>Requested Date: Jan 1, 2024</p>
+                <p>Repayment Plan: 12 months</p>
+            </div>
+        </div>
+
+        <!-- Add more request elements similarly -->
+    </div>
+
+    <script>
+        document.querySelectorAll('.toggle-request').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const details = this.nextElementSibling;
+                details.style.display = details.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
+</body>
+</html>

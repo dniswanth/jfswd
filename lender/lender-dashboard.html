@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lender Dashboard - Loansphere</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #EAC7AF; /* Updated to your preferred color */
+        }
+        header {
+            background-color: black;
+            color: white;
+            opacity: 0.8;
+            padding: 1em;
+            text-align: center;
+        }
+         /* Navbar Styling */
+         nav {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            height: 70px;
+        }
+
+        nav .logo {
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #EAC7AF;
+        }
+
+        /* Responsive Navbar */
+        .menu-toggle {
+            display: none;
+            font-size: 28px;
+            color: white;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                display: none;
+                width: 100%;
+                text-align: center;
+            }
+
+            nav ul.active {
+                display: block;
+            }
+
+            nav .menu-toggle {
+                display: block;
+            }
+        }
+        .logout-btn {
+            position: absolute;
+            top: 180px; /* Below the navbar */
+            right: 20px;
+            background-color: #643404;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .logout-btn:hover {
+            background-color: #E74C3C;
+        }
+        .main-content {
+            padding: 20px;
+        }
+        .card {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .toggle-content {
+            cursor: pointer;
+            background-color: #2980B9;
+            color: white;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .dynamic-section {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">LENDER</div>
+        <span class="menu-toggle" onclick="toggleMenu()">&#9776;</span>
+        <ul id="navbar-menu">
+            <li><a href="lender-dashboard.html">Dashboard</a></li>
+            <li><a href="loan-offers.html">Loan Offers</a></li>
+            <li><a href="loan-requests.html">Loan Requests</a></li>
+            <li><a href="payment_history.html">Payment History</a></li>
+            <li><a href="profile.html">Profile Settings</a></li>
+        </ul>
+    </nav>
+
+
+    <button class="logout-btn" id="logoutBtn">Logout</button> <!-- Logout Button -->
+
+    <div class="main-content">
+        <div class="card">
+            <h2>Active Loans</h2>
+            <p>You currently have <strong>3 active loans</strong>.</p>
+            <div class="toggle-content">View Loan Details</div>
+            <div class="dynamic-section">
+                <p>Loan 1: $50,000 | 5% | 12 months</p>
+                <p>Loan 2: $30,000 | 4.5% | 24 months</p>
+                <p>Loan 3: $20,000 | 4.2% | 18 months</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Loan Requests</h2>
+            <p>You have <strong>5 new loan requests</strong> waiting for approval.</p>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.toggle-content').forEach(button => {
+            button.addEventListener('click', () => {
+                const section = button.nextElementSibling;
+                section.style.display = section.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+
+        // Logout button functionality - redirects to the homepage
+        const logoutBtn = document.getElementById('logoutBtn');
+        logoutBtn.addEventListener('click', function() {
+            window.location.href = 'index.html';  // Redirect to home page
+        });
+    </script>
+</body>
+</html>

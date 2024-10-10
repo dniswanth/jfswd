@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help - Loansphere</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #EAC7AF;
+        }
+        header {
+            background-color: black;
+            opacity: 0.9;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            width: 100%;
+        }
+        /* Navbar Styling */
+        nav {
+            background-color: #000000cc; /* Changed to solid black */
+            padding: 10px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            height: 70px;
+            width: 100%; /* Ensure the navbar spans full width */
+        }
+
+        nav .logo {
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #EAC7AF;
+        }
+
+        /* Responsive Navbar */
+        .menu-toggle {
+            display: none;
+            font-size: 28px;
+            color: white;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                display: none;
+                width: 100%;
+                text-align: center;
+            }
+
+            nav ul.active {
+                display: block;
+            }
+
+            nav .menu-toggle {
+                display: block;
+            }
+        }
+
+        .main-content {
+            width: 80%;
+            padding: 20px;
+            margin: 20px auto;
+            background-color: #8A6565;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: white;
+        }
+        .faq {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .faq h3 {
+            color: black;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .faq p {
+            color: #333;
+            display: none;
+            padding-top: 10px;
+        }
+        .faq button {
+            background: none;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            color: #333;
+        }
+        form {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        label, input, textarea {
+            display: block;
+            margin: 10px 0;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        @media (max-width: 768px) {
+            .main-content {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Borrower</div>
+        <span class="menu-toggle" onclick="toggleMenu()">&#9776;</span>
+        <ul id="navbar-menu">
+            <li><a href="borrower-dashboard.html">Dashboard</a></li>
+            <li><a href="loan-application.html">Apply for Loan</a></li>
+            <li><a href="loan-status.html">Loan Status</a></li>
+            <li><a href="payment-history.html">Payment History</a></li>
+            <li><a href="profile-settings.html">Profile</a></li>
+            <li><a href="help.html">Help</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq">
+            <h3 onclick="toggleAnswer(this)">
+                How do I apply for a loan?
+                <button class="toggle-btn">+</button>
+            </h3>
+            <p>You can apply for a loan by filling out the loan application form in the "Apply for Loan" section of your dashboard.</p>
+        </div>
+
+        <div class="faq">
+            <h3 onclick="toggleAnswer(this)">
+                What are the payment methods available?
+                <button class="toggle-btn">+</button>
+            </h3>
+            <p>We accept various payment methods including credit/debit cards and bank transfers.</p>
+        </div>
+
+        <div class="faq">
+            <h3 onclick="toggleAnswer(this)">
+                How can I contact support?
+                <button class="toggle-btn">+</button>
+            </h3>
+            <p>You can contact our support team through the "Contact Us" section or by emailing support@loansphere.com.</p>
+        </div>
+
+        <h2>Contact Us</h2>
+        <form>
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="query">Your Query</label>
+            <textarea id="query" name="query" rows="4" required></textarea>
+
+            <button type="submit">Submit Query</button>
+        </form>
+    </div>
+
+    <script>
+        function toggleAnswer(element) {
+            const answer = element.nextElementSibling;
+            const toggleBtn = element.querySelector('.toggle-btn');
+
+            if (answer.style.display === "none" || answer.style.display === "") {
+                answer.style.display = "block";
+                toggleBtn.textContent = "-";
+            } else {
+                answer.style.display = "none";
+                toggleBtn.textContent = "+";
+            }
+        }
+    </script>
+</body>
+</html>

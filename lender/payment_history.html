@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment History - Loansphere</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #EAC7AF;
+        }
+        header {
+            background-color: black;
+            color: white;
+            opacity: 0.8;
+            padding: 1em;
+            text-align: center;
+        }
+         /* Navbar Styling */
+         nav {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            height: 70px;
+        }
+
+        nav .logo {
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #EAC7AF;
+        }
+
+        /* Responsive Navbar */
+        .menu-toggle {
+            display: none;
+            font-size: 28px;
+            color: white;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                display: none;
+                width: 100%;
+                text-align: center;
+            }
+
+            nav ul.active {
+                display: block;
+            }
+
+            nav .menu-toggle {
+                display: block;
+            }
+        }
+        .main-content {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .payment {
+            background-color: #8A6565;
+            color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .sort-btn {
+            background-color: #643404;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .sort-btn:hover {
+            background-color: #E74C3C;
+        }
+        .payment h3, .payment p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">LENDER</div>
+        <span class="menu-toggle" onclick="toggleMenu()">&#9776;</span>
+        <ul id="navbar-menu">
+            <li><a href="lender-dashboard.html">Dashboard</a></li>
+            <li><a href="loan-offers.html">Loan Offers</a></li>
+            <li><a href="loan-requests.html">Loan Requests</a></li>
+            <li><a href="payment_history.html">Payment History</a></li>
+            <li><a href="profile.html">Profile Settings</a></li>
+        </ul>
+    </nav>
+
+
+    <div class="main-content">
+        <button class="sort-btn" id="sortBtn">Sort by Date</button>
+        <div class="payment" data-date="2024-08-01">
+            <h3>Payment #123</h3>
+            <p>Date: Aug 1, 2024 | Amount: $500</p>
+        </div>
+        <div class="payment" data-date="2024-07-15">
+            <h3>Payment #456</h3>
+            <p>Date: Jul 15, 2024 | Amount: $300</p>
+        </div>
+    </div>
+
+    <script>
+        const sortBtn = document.getElementById('sortBtn');
+        sortBtn.addEventListener('click', function() {
+            const payments = [...document.querySelectorAll('.payment')];
+            payments.sort((a, b) => new Date(b.dataset.date) - new Date(a.dataset.date));
+            payments.forEach(payment => payment.parentNode.appendChild(payment));
+        });
+    </script>
+</body>
+</html>
